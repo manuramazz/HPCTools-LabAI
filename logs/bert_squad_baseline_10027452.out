@@ -1,0 +1,557 @@
+slurmstepd: info: Setting TMPDIR to /scratch/10027452. Previous errors about TMPDIR can be discarded
+2026-09-27 22:10:10.692152: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-09-27 22:10:12.886749: I tensorflow/core/util/port.cc:104] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-09-27 22:10:17.181780: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /mnt/netapp1/Optcesga_FT2_RHEL7/2020/gentoo/22072020/usr/gr/lib64
+2026-09-27 22:10:17.182435: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /mnt/netapp1/Optcesga_FT2_RHEL7/2020/gentoo/22072020/usr/gr/lib64
+2026-09-27 22:10:17.182445: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+09/27/2026 22:10:25 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
+09/27/2026 22:10:25 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'fsdp_min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=3e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_logs,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=100,
+logging_strategy=steps,
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=2.0,
+optim=adamw_hf,
+optim_args=None,
+output_dir=/mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=12,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['tensorboard'],
+resume_from_checkpoint=None,
+run_name=/mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output,
+save_on_each_node=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+09/27/2026 22:10:27 - INFO - datasets.builder - Using custom data configuration plain_text-7d14fdbf55ecc00c
+09/27/2026 22:10:27 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+09/27/2026 22:10:27 - INFO - datasets.info - Loading Dataset info from /mnt/netapp2/Store_uni/home/ulc/cursos/curso356/hf_cache/datasets/parquet/plain_text-7d14fdbf55ecc00c/0.0.0/14a00e99c0d15a23649d0db8944380ac81082d4b021f398733dd84f3a6c569a7
+09/27/2026 22:10:27 - WARNING - datasets.builder - Found cached dataset parquet (/mnt/netapp2/Store_uni/home/ulc/cursos/curso356/hf_cache/datasets/parquet/plain_text-7d14fdbf55ecc00c/0.0.0/14a00e99c0d15a23649d0db8944380ac81082d4b021f398733dd84f3a6c569a7)
+09/27/2026 22:10:27 - INFO - datasets.info - Loading Dataset info from /mnt/netapp2/Store_uni/home/ulc/cursos/curso356/hf_cache/datasets/parquet/plain_text-7d14fdbf55ecc00c/0.0.0/14a00e99c0d15a23649d0db8944380ac81082d4b021f398733dd84f3a6c569a7
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:00<00:00,  9.59it/s]100%|██████████| 2/2 [00:00<00:00, 17.60it/s]
+[INFO|configuration_utils.py:669] 2026-09-27 22:10:27,556 >> loading configuration file config.json from cache at /mnt/netapp2/Store_uni//home/ulc/cursos/curso356/hf_cache/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/config.json
+[INFO|configuration_utils.py:725] 2026-09-27 22:10:27,583 >> Model config BertConfig {
+  "_name_or_path": "bert-base-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.30.2",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+[INFO|configuration_utils.py:669] 2026-09-27 22:10:27,781 >> loading configuration file config.json from cache at /mnt/netapp2/Store_uni//home/ulc/cursos/curso356/hf_cache/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/config.json
+[INFO|configuration_utils.py:725] 2026-09-27 22:10:27,781 >> Model config BertConfig {
+  "_name_or_path": "bert-base-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.30.2",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+[INFO|tokenization_utils_base.py:1823] 2026-09-27 22:10:27,787 >> loading file vocab.txt from cache at /mnt/netapp2/Store_uni//home/ulc/cursos/curso356/hf_cache/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/vocab.txt
+[INFO|tokenization_utils_base.py:1823] 2026-09-27 22:10:27,787 >> loading file tokenizer.json from cache at /mnt/netapp2/Store_uni//home/ulc/cursos/curso356/hf_cache/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer.json
+[INFO|tokenization_utils_base.py:1823] 2026-09-27 22:10:27,787 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1823] 2026-09-27 22:10:27,787 >> loading file special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1823] 2026-09-27 22:10:27,787 >> loading file tokenizer_config.json from cache at /mnt/netapp2/Store_uni//home/ulc/cursos/curso356/hf_cache/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer_config.json
+[INFO|configuration_utils.py:669] 2026-09-27 22:10:27,789 >> loading configuration file config.json from cache at /mnt/netapp2/Store_uni//home/ulc/cursos/curso356/hf_cache/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/config.json
+[INFO|configuration_utils.py:725] 2026-09-27 22:10:27,790 >> Model config BertConfig {
+  "_name_or_path": "bert-base-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.30.2",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+[INFO|modeling_utils.py:2578] 2026-09-27 22:10:28,028 >> loading weights file model.safetensors from cache at /mnt/netapp2/Store_uni//home/ulc/cursos/curso356/hf_cache/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/model.safetensors
+[WARNING|modeling_utils.py:3286] 2026-09-27 22:10:30,575 >> Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForQuestionAnswering: ['cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias']
+- This IS expected if you are initializing BertForQuestionAnswering from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForQuestionAnswering from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[WARNING|modeling_utils.py:3298] 2026-09-27 22:10:30,575 >> Some weights of BertForQuestionAnswering were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['qa_outputs.weight', 'qa_outputs.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+09/27/2026 22:10:31 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /mnt/netapp2/Store_uni/home/ulc/cursos/curso356/hf_cache/datasets/parquet/plain_text-7d14fdbf55ecc00c/0.0.0/14a00e99c0d15a23649d0db8944380ac81082d4b021f398733dd84f3a6c569a7/cache-d6f7457d7c3bc6e4.arrow
+09/27/2026 22:10:31 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/netapp2/Store_uni/home/ulc/cursos/curso356/hf_cache/datasets/parquet/plain_text-7d14fdbf55ecc00c/0.0.0/14a00e99c0d15a23649d0db8944380ac81082d4b021f398733dd84f3a6c569a7/cache-13002f9e9e1894ba.arrow
+Running tokenizer on validation dataset:   0%|          | 0/10570 [00:00<?, ? examples/s]Running tokenizer on validation dataset:   9%|▉         | 1000/10570 [00:00<00:04, 2360.79 examples/s]Running tokenizer on validation dataset:  19%|█▉        | 2000/10570 [00:00<00:03, 2830.91 examples/s]Running tokenizer on validation dataset:  28%|██▊       | 3000/10570 [00:01<00:02, 2927.29 examples/s]Running tokenizer on validation dataset:  38%|███▊      | 4000/10570 [00:01<00:02, 3014.43 examples/s]Running tokenizer on validation dataset:  47%|████▋     | 5000/10570 [00:01<00:02, 2558.80 examples/s]Running tokenizer on validation dataset:  57%|█████▋    | 6000/10570 [00:02<00:01, 2658.87 examples/s]Running tokenizer on validation dataset:  66%|██████▌   | 7000/10570 [00:02<00:01, 2728.70 examples/s]Running tokenizer on validation dataset:  76%|███████▌  | 8000/10570 [00:02<00:00, 2650.54 examples/s]Running tokenizer on validation dataset:  85%|████████▌ | 9000/10570 [00:03<00:00, 2783.72 examples/s]Running tokenizer on validation dataset:  95%|█████████▍| 10000/10570 [00:03<00:00, 2903.85 examples/s]Running tokenizer on validation dataset: 100%|██████████| 10570/10570 [00:03<00:00, 2940.93 examples/s]                                                                                                       /mnt/netapp2/Store_uni/home/ulc/cursos/curso356/myvenv/lib/python3.7/site-packages/transformers/optimization.py:415: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  FutureWarning,
+[INFO|trainer.py:1786] 2026-09-27 22:10:45,264 >> ***** Running training *****
+[INFO|trainer.py:1787] 2026-09-27 22:10:45,264 >>   Num examples = 88,524
+[INFO|trainer.py:1788] 2026-09-27 22:10:45,264 >>   Num Epochs = 2
+[INFO|trainer.py:1789] 2026-09-27 22:10:45,264 >>   Instantaneous batch size per device = 12
+[INFO|trainer.py:1790] 2026-09-27 22:10:45,264 >>   Total train batch size (w. parallel, distributed & accumulation) = 12
+[INFO|trainer.py:1791] 2026-09-27 22:10:45,264 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:1792] 2026-09-27 22:10:45,264 >>   Total optimization steps = 14,754
+[INFO|trainer.py:1793] 2026-09-27 22:10:45,265 >>   Number of trainable parameters = 108,893,186
+[INFO|trainer.py:2926] 2026-09-27 22:12:40,160 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-500
+[INFO|configuration_utils.py:458] 2026-09-27 22:12:40,162 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-500/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:12:40,632 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-500/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:12:40,633 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:12:40,634 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-500/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:14:31,657 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-1000
+[INFO|configuration_utils.py:458] 2026-09-27 22:14:31,659 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-1000/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:14:32,118 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-1000/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:14:32,120 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-1000/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:14:32,121 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-1000/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:16:23,204 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-1500
+[INFO|configuration_utils.py:458] 2026-09-27 22:16:23,206 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-1500/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:16:23,666 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-1500/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:16:23,667 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-1500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:16:23,668 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-1500/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:18:14,713 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-2000
+[INFO|configuration_utils.py:458] 2026-09-27 22:18:14,715 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-2000/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:18:15,180 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-2000/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:18:15,181 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-2000/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:18:15,182 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-2000/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:20:06,283 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-2500
+[INFO|configuration_utils.py:458] 2026-09-27 22:20:06,285 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-2500/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:20:06,743 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-2500/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:20:06,744 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-2500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:20:06,745 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-2500/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:21:57,849 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-3000
+[INFO|configuration_utils.py:458] 2026-09-27 22:21:57,851 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-3000/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:21:58,310 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-3000/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:21:58,311 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-3000/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:21:58,312 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-3000/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:23:49,450 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-3500
+[INFO|configuration_utils.py:458] 2026-09-27 22:23:49,452 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-3500/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:23:49,923 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-3500/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:23:49,924 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-3500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:23:49,925 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-3500/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:25:41,083 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-4000
+[INFO|configuration_utils.py:458] 2026-09-27 22:25:41,085 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-4000/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:25:41,541 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-4000/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:25:41,543 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-4000/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:25:41,544 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-4000/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:27:32,788 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-4500
+[INFO|configuration_utils.py:458] 2026-09-27 22:27:32,789 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-4500/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:27:33,243 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-4500/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:27:33,245 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-4500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:27:33,246 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-4500/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:29:24,437 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-5000
+[INFO|configuration_utils.py:458] 2026-09-27 22:29:24,439 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-5000/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:29:24,898 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-5000/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:29:24,899 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-5000/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:29:24,901 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-5000/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:31:16,109 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-5500
+[INFO|configuration_utils.py:458] 2026-09-27 22:31:16,111 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-5500/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:31:16,569 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-5500/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:31:16,570 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-5500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:31:16,571 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-5500/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:33:07,806 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-6000
+[INFO|configuration_utils.py:458] 2026-09-27 22:33:07,808 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-6000/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:33:08,260 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-6000/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:33:08,261 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-6000/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:33:08,262 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-6000/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:34:59,506 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-6500
+[INFO|configuration_utils.py:458] 2026-09-27 22:34:59,508 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-6500/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:34:59,961 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-6500/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:34:59,962 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-6500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:34:59,963 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-6500/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:36:51,233 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-7000
+[INFO|configuration_utils.py:458] 2026-09-27 22:36:51,234 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-7000/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:36:51,691 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-7000/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:36:51,692 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-7000/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:36:51,693 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-7000/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:38:43,010 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-7500
+[INFO|configuration_utils.py:458] 2026-09-27 22:38:43,012 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-7500/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:38:43,469 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-7500/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:38:43,470 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-7500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:38:43,471 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-7500/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:40:34,740 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-8000
+[INFO|configuration_utils.py:458] 2026-09-27 22:40:34,743 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-8000/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:40:35,198 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-8000/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:40:35,199 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-8000/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:40:35,200 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-8000/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:42:26,415 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-8500
+[INFO|configuration_utils.py:458] 2026-09-27 22:42:26,417 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-8500/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:42:26,874 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-8500/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:42:26,875 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-8500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:42:26,876 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-8500/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:44:18,106 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-9000
+[INFO|configuration_utils.py:458] 2026-09-27 22:44:18,108 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-9000/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:44:18,565 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-9000/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:44:18,566 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-9000/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:44:18,567 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-9000/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:46:09,830 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-9500
+[INFO|configuration_utils.py:458] 2026-09-27 22:46:09,831 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-9500/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:46:10,289 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-9500/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:46:10,291 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-9500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:46:10,292 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-9500/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:48:01,471 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-10000
+[INFO|configuration_utils.py:458] 2026-09-27 22:48:01,473 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-10000/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:48:01,930 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-10000/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:48:01,931 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-10000/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:48:01,932 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-10000/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:49:53,219 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-10500
+[INFO|configuration_utils.py:458] 2026-09-27 22:49:53,220 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-10500/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:49:53,676 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-10500/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:49:53,677 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-10500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:49:53,678 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-10500/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:51:44,992 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-11000
+[INFO|configuration_utils.py:458] 2026-09-27 22:51:44,994 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-11000/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:51:45,451 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-11000/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:51:45,452 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-11000/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:51:45,453 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-11000/special_tokens_map.json
+{'loss': 3.9615, 'learning_rate': 2.9796665311102072e-05, 'epoch': 0.01}
+{'loss': 2.5769, 'learning_rate': 2.959333062220415e-05, 'epoch': 0.03}
+{'loss': 2.1439, 'learning_rate': 2.9389995933306222e-05, 'epoch': 0.04}
+{'loss': 1.7938, 'learning_rate': 2.9186661244408297e-05, 'epoch': 0.05}
+{'loss': 1.7204, 'learning_rate': 2.8983326555510372e-05, 'epoch': 0.07}
+{'loss': 1.5531, 'learning_rate': 2.8779991866612443e-05, 'epoch': 0.08}
+{'loss': 1.5376, 'learning_rate': 2.857665717771452e-05, 'epoch': 0.09}
+{'loss': 1.5036, 'learning_rate': 2.8373322488816593e-05, 'epoch': 0.11}
+{'loss': 1.3748, 'learning_rate': 2.8169987799918668e-05, 'epoch': 0.12}
+{'loss': 1.5039, 'learning_rate': 2.796665311102074e-05, 'epoch': 0.14}
+{'loss': 1.4361, 'learning_rate': 2.7763318422122818e-05, 'epoch': 0.15}
+{'loss': 1.338, 'learning_rate': 2.755998373322489e-05, 'epoch': 0.16}
+{'loss': 1.4061, 'learning_rate': 2.735664904432696e-05, 'epoch': 0.18}
+{'loss': 1.3947, 'learning_rate': 2.7153314355429036e-05, 'epoch': 0.19}
+{'loss': 1.3498, 'learning_rate': 2.694997966653111e-05, 'epoch': 0.2}
+{'loss': 1.3774, 'learning_rate': 2.6746644977633186e-05, 'epoch': 0.22}
+{'loss': 1.2695, 'learning_rate': 2.6543310288735257e-05, 'epoch': 0.23}
+{'loss': 1.2866, 'learning_rate': 2.6339975599837332e-05, 'epoch': 0.24}
+{'loss': 1.3032, 'learning_rate': 2.6136640910939407e-05, 'epoch': 0.26}
+{'loss': 1.3195, 'learning_rate': 2.593330622204148e-05, 'epoch': 0.27}
+{'loss': 1.3173, 'learning_rate': 2.5729971533143557e-05, 'epoch': 0.28}
+{'loss': 1.2528, 'learning_rate': 2.552663684424563e-05, 'epoch': 0.3}
+{'loss': 1.203, 'learning_rate': 2.5323302155347703e-05, 'epoch': 0.31}
+{'loss': 1.2304, 'learning_rate': 2.5119967466449778e-05, 'epoch': 0.33}
+{'loss': 1.2583, 'learning_rate': 2.491663277755185e-05, 'epoch': 0.34}
+{'loss': 1.1917, 'learning_rate': 2.4713298088653925e-05, 'epoch': 0.35}
+{'loss': 1.1846, 'learning_rate': 2.4509963399756e-05, 'epoch': 0.37}
+{'loss': 1.1657, 'learning_rate': 2.4306628710858075e-05, 'epoch': 0.38}
+{'loss': 1.2244, 'learning_rate': 2.4103294021960146e-05, 'epoch': 0.39}
+{'loss': 1.1927, 'learning_rate': 2.389995933306222e-05, 'epoch': 0.41}
+{'loss': 1.2152, 'learning_rate': 2.3696624644164296e-05, 'epoch': 0.42}
+{'loss': 1.1996, 'learning_rate': 2.3493289955266367e-05, 'epoch': 0.43}
+{'loss': 1.2053, 'learning_rate': 2.3289955266368446e-05, 'epoch': 0.45}
+{'loss': 1.2008, 'learning_rate': 2.3086620577470517e-05, 'epoch': 0.46}
+{'loss': 1.1371, 'learning_rate': 2.288328588857259e-05, 'epoch': 0.47}
+{'loss': 1.1572, 'learning_rate': 2.2679951199674667e-05, 'epoch': 0.49}
+{'loss': 1.1656, 'learning_rate': 2.247661651077674e-05, 'epoch': 0.5}
+{'loss': 1.078, 'learning_rate': 2.2273281821878813e-05, 'epoch': 0.52}
+{'loss': 1.1265, 'learning_rate': 2.2069947132980885e-05, 'epoch': 0.53}
+{'loss': 1.1132, 'learning_rate': 2.1866612444082963e-05, 'epoch': 0.54}
+{'loss': 1.0882, 'learning_rate': 2.1663277755185035e-05, 'epoch': 0.56}
+{'loss': 1.0514, 'learning_rate': 2.1459943066287106e-05, 'epoch': 0.57}
+{'loss': 1.1014, 'learning_rate': 2.1256608377389185e-05, 'epoch': 0.58}
+{'loss': 1.1202, 'learning_rate': 2.1053273688491256e-05, 'epoch': 0.6}
+{'loss': 1.077, 'learning_rate': 2.084993899959333e-05, 'epoch': 0.61}
+{'loss': 1.0183, 'learning_rate': 2.0646604310695406e-05, 'epoch': 0.62}
+{'loss': 1.0447, 'learning_rate': 2.0443269621797478e-05, 'epoch': 0.64}
+{'loss': 1.1335, 'learning_rate': 2.0239934932899552e-05, 'epoch': 0.65}
+{'loss': 1.1254, 'learning_rate': 2.0036600244001627e-05, 'epoch': 0.66}
+{'loss': 1.0625, 'learning_rate': 1.9833265555103702e-05, 'epoch': 0.68}
+{'loss': 1.0794, 'learning_rate': 1.9629930866205774e-05, 'epoch': 0.69}
+{'loss': 1.1277, 'learning_rate': 1.9426596177307852e-05, 'epoch': 0.7}
+{'loss': 1.1177, 'learning_rate': 1.9223261488409924e-05, 'epoch': 0.72}
+{'loss': 1.0875, 'learning_rate': 1.9019926799511995e-05, 'epoch': 0.73}
+{'loss': 1.1187, 'learning_rate': 1.8816592110614073e-05, 'epoch': 0.75}
+{'loss': 1.1027, 'learning_rate': 1.8613257421716145e-05, 'epoch': 0.76}
+{'loss': 1.0759, 'learning_rate': 1.840992273281822e-05, 'epoch': 0.77}
+{'loss': 1.0536, 'learning_rate': 1.8206588043920295e-05, 'epoch': 0.79}
+{'loss': 1.0434, 'learning_rate': 1.8003253355022366e-05, 'epoch': 0.8}
+{'loss': 1.0691, 'learning_rate': 1.779991866612444e-05, 'epoch': 0.81}
+{'loss': 1.0409, 'learning_rate': 1.7596583977226516e-05, 'epoch': 0.83}
+{'loss': 1.0077, 'learning_rate': 1.739324928832859e-05, 'epoch': 0.84}
+{'loss': 1.0499, 'learning_rate': 1.7189914599430663e-05, 'epoch': 0.85}
+{'loss': 0.9482, 'learning_rate': 1.6986579910532734e-05, 'epoch': 0.87}
+{'loss': 1.0938, 'learning_rate': 1.6783245221634812e-05, 'epoch': 0.88}
+{'loss': 1.0626, 'learning_rate': 1.6579910532736884e-05, 'epoch': 0.89}
+{'loss': 1.0323, 'learning_rate': 1.637657584383896e-05, 'epoch': 0.91}
+{'loss': 1.1056, 'learning_rate': 1.6173241154941034e-05, 'epoch': 0.92}
+{'loss': 1.0313, 'learning_rate': 1.596990646604311e-05, 'epoch': 0.94}
+{'loss': 1.0203, 'learning_rate': 1.576657177714518e-05, 'epoch': 0.95}
+{'loss': 1.0529, 'learning_rate': 1.5563237088247255e-05, 'epoch': 0.96}
+{'loss': 1.006, 'learning_rate': 1.535990239934933e-05, 'epoch': 0.98}
+{'loss': 1.04, 'learning_rate': 1.5156567710451401e-05, 'epoch': 0.99}
+{'loss': 0.941, 'learning_rate': 1.4953233021553476e-05, 'epoch': 1.0}
+{'loss': 0.7418, 'learning_rate': 1.4749898332655551e-05, 'epoch': 1.02}
+{'loss': 0.7192, 'learning_rate': 1.4546563643757626e-05, 'epoch': 1.03}
+{'loss': 0.6597, 'learning_rate': 1.43432289548597e-05, 'epoch': 1.04}
+{'loss': 0.7144, 'learning_rate': 1.4139894265961774e-05, 'epoch': 1.06}
+{'loss': 0.7762, 'learning_rate': 1.3936559577063848e-05, 'epoch': 1.07}
+{'loss': 0.744, 'learning_rate': 1.373322488816592e-05, 'epoch': 1.08}
+{'loss': 0.7407, 'learning_rate': 1.3529890199267996e-05, 'epoch': 1.1}
+{'loss': 0.72, 'learning_rate': 1.3326555510370069e-05, 'epoch': 1.11}
+{'loss': 0.7307, 'learning_rate': 1.3123220821472144e-05, 'epoch': 1.13}
+{'loss': 0.7548, 'learning_rate': 1.2919886132574219e-05, 'epoch': 1.14}
+{'loss': 0.7599, 'learning_rate': 1.271655144367629e-05, 'epoch': 1.15}
+{'loss': 0.7041, 'learning_rate': 1.2513216754778365e-05, 'epoch': 1.17}
+{'loss': 0.7597, 'learning_rate': 1.230988206588044e-05, 'epoch': 1.18}
+{'loss': 0.6928, 'learning_rate': 1.2106547376982513e-05, 'epoch': 1.19}
+{'loss': 0.7486, 'learning_rate': 1.1903212688084588e-05, 'epoch': 1.21}
+{'loss': 0.7338, 'learning_rate': 1.1699877999186661e-05, 'epoch': 1.22}
+{'loss': 0.656, 'learning_rate': 1.1496543310288735e-05, 'epoch': 1.23}
+{'loss': 0.7073, 'learning_rate': 1.129320862139081e-05, 'epoch': 1.25}
+{'loss': 0.7129, 'learning_rate': 1.1089873932492884e-05, 'epoch': 1.26}
+{'loss': 0.6501, 'learning_rate': 1.0886539243594958e-05, 'epoch': 1.27}
+{'loss': 0.7144, 'learning_rate': 1.0683204554697033e-05, 'epoch': 1.29}
+{'loss': 0.7951, 'learning_rate': 1.0479869865799104e-05, 'epoch': 1.3}
+{'loss': 0.7506, 'learning_rate': 1.0276535176901179e-05, 'epoch': 1.31}
+{'loss': 0.7499, 'learning_rate': 1.0073200488003254e-05, 'epoch': 1.33}
+{'loss': 0.6932, 'learning_rate': 9.869865799105327e-06, 'epoch': 1.34}
+{'loss': 0.7533, 'learning_rate': 9.666531110207402e-06, 'epoch': 1.36}
+{'loss': 0.7291, 'learning_rate': 9.463196421309477e-06, 'epoch': 1.37}
+{'loss': 0.7045, 'learning_rate': 9.259861732411548e-06, 'epoch': 1.38}
+{'loss': 0.6965, 'learning_rate': 9.056527043513623e-06, 'epoch': 1.4}
+{'loss': 0.7061, 'learning_rate': 8.853192354615698e-06, 'epoch': 1.41}
+{'loss': 0.7483, 'learning_rate': 8.649857665717772e-06, 'epoch': 1.42}
+{'loss': 0.6963, 'learning_rate': 8.446522976819846e-06, 'epoch': 1.44}
+{'loss': 0.7671, 'learning_rate': 8.24318828792192e-06, 'epoch': 1.45}
+{'loss': 0.7408, 'learning_rate': 8.039853599023993e-06, 'epoch': 1.46}
+{'loss': 0.7299, 'learning_rate': 7.836518910126068e-06, 'epoch': 1.48}
+{'loss': 0.706, 'learning_rate': 7.633184221228141e-06, 'epoch': 1.49}
+{'loss': 0.7083, 'learning_rate': 7.429849532330216e-06, 'epoch': 1.5}
+{'loss': 0.7139, 'learning_rate': 7.226514843432289e-06, 'epoch': 1.52}
+{'loss': 0.7273, 'learning_rate': 7.023180154534364e-06, 'epoch': 1.53}
+[INFO|trainer.py:2926] 2026-09-27 22:53:36,855 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-11500
+[INFO|configuration_utils.py:458] 2026-09-27 22:53:36,857 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-11500/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:53:37,393 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-11500/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:53:37,394 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-11500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:53:37,395 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-11500/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:55:28,890 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-12000
+[INFO|configuration_utils.py:458] 2026-09-27 22:55:28,892 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-12000/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:55:29,403 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-12000/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:55:29,405 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-12000/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:55:29,406 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-12000/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:57:20,661 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-12500
+[INFO|configuration_utils.py:458] 2026-09-27 22:57:20,663 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-12500/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:57:21,234 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-12500/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:57:21,235 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-12500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:57:21,236 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-12500/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 22:59:12,754 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-13000
+[INFO|configuration_utils.py:458] 2026-09-27 22:59:12,756 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-13000/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 22:59:13,345 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-13000/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:59:13,346 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-13000/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:59:13,347 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-13000/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 23:01:04,851 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-13500
+[INFO|configuration_utils.py:458] 2026-09-27 23:01:04,853 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-13500/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 23:01:05,404 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-13500/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 23:01:05,405 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-13500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 23:01:05,406 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-13500/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 23:02:57,002 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-14000
+[INFO|configuration_utils.py:458] 2026-09-27 23:02:57,004 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-14000/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 23:02:57,599 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-14000/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 23:02:57,600 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-14000/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 23:02:57,601 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-14000/special_tokens_map.json
+[INFO|trainer.py:2926] 2026-09-27 23:04:49,081 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-14500
+[INFO|configuration_utils.py:458] 2026-09-27 23:04:49,083 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-14500/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 23:04:49,671 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-14500/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 23:04:49,672 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-14500/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 23:04:49,673 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/checkpoint-14500/special_tokens_map.json
+[INFO|trainer.py:2053] 2026-09-27 23:05:46,922 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+[INFO|trainer.py:2926] 2026-09-27 23:05:46,925 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output
+[INFO|configuration_utils.py:458] 2026-09-27 23:05:46,927 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/config.json
+[INFO|modeling_utils.py:1853] 2026-09-27 23:05:47,511 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2194] 2026-09-27 23:05:47,513 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2201] 2026-09-27 23:05:47,514 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/special_tokens_map.json
+{'loss': 0.6797, 'learning_rate': 6.819845465636438e-06, 'epoch': 1.55}
+{'loss': 0.6784, 'learning_rate': 6.616510776738511e-06, 'epoch': 1.56}
+{'loss': 0.7098, 'learning_rate': 6.413176087840585e-06, 'epoch': 1.57}
+{'loss': 0.8271, 'learning_rate': 6.20984139894266e-06, 'epoch': 1.59}
+{'loss': 0.7259, 'learning_rate': 6.0065067100447335e-06, 'epoch': 1.6}
+{'loss': 0.6827, 'learning_rate': 5.8031720211468076e-06, 'epoch': 1.61}
+{'loss': 0.7065, 'learning_rate': 5.5998373322488825e-06, 'epoch': 1.63}
+{'loss': 0.6884, 'learning_rate': 5.396502643350956e-06, 'epoch': 1.64}
+{'loss': 0.7135, 'learning_rate': 5.19316795445303e-06, 'epoch': 1.65}
+{'loss': 0.6905, 'learning_rate': 4.989833265555104e-06, 'epoch': 1.67}
+{'loss': 0.6774, 'learning_rate': 4.786498576657178e-06, 'epoch': 1.68}
+{'loss': 0.6853, 'learning_rate': 4.583163887759252e-06, 'epoch': 1.69}
+{'loss': 0.7383, 'learning_rate': 4.379829198861326e-06, 'epoch': 1.71}
+{'loss': 0.6776, 'learning_rate': 4.1764945099634e-06, 'epoch': 1.72}
+{'loss': 0.6539, 'learning_rate': 3.973159821065474e-06, 'epoch': 1.74}
+{'loss': 0.7055, 'learning_rate': 3.7698251321675478e-06, 'epoch': 1.75}
+{'loss': 0.6578, 'learning_rate': 3.566490443269622e-06, 'epoch': 1.76}
+{'loss': 0.6773, 'learning_rate': 3.363155754371696e-06, 'epoch': 1.78}
+{'loss': 0.6665, 'learning_rate': 3.15982106547377e-06, 'epoch': 1.79}
+{'loss': 0.7095, 'learning_rate': 2.9564863765758436e-06, 'epoch': 1.8}
+{'loss': 0.7079, 'learning_rate': 2.753151687677918e-06, 'epoch': 1.82}
+{'loss': 0.7313, 'learning_rate': 2.549816998779992e-06, 'epoch': 1.83}
+{'loss': 0.7101, 'learning_rate': 2.346482309882066e-06, 'epoch': 1.84}
+{'loss': 0.7275, 'learning_rate': 2.1431476209841403e-06, 'epoch': 1.86}
+{'loss': 0.7481, 'learning_rate': 1.939812932086214e-06, 'epoch': 1.87}
+{'loss': 0.6782, 'learning_rate': 1.7364782431882878e-06, 'epoch': 1.88}
+{'loss': 0.7345, 'learning_rate': 1.533143554290362e-06, 'epoch': 1.9}
+{'loss': 0.7324, 'learning_rate': 1.3298088653924361e-06, 'epoch': 1.91}
+{'loss': 0.6442, 'learning_rate': 1.12647417649451e-06, 'epoch': 1.92}
+{'loss': 0.7395, 'learning_rate': 9.23139487596584e-07, 'epoch': 1.94}
+{'loss': 0.7266, 'learning_rate': 7.19804798698658e-07, 'epoch': 1.95}
+{'loss': 0.7033, 'learning_rate': 5.164701098007319e-07, 'epoch': 1.97}
+{'loss': 0.6635, 'learning_rate': 3.13135420902806e-07, 'epoch': 1.98}
+{'loss': 0.7415, 'learning_rate': 1.0980073200488003e-07, 'epoch': 1.99}
+{'train_runtime': 3301.6574, 'train_samples_per_second': 53.624, 'train_steps_per_second': 4.469, 'train_loss': 0.9871156280629273, 'epoch': 2.0}
+***** train metrics *****
+  epoch                    =        2.0
+  train_loss               =     0.9871
+  train_runtime            = 0:55:01.65
+  train_samples            =      88524
+  train_samples_per_second =     53.624
+  train_steps_per_second   =      4.469
+09/27/2026 23:05:47 - INFO - __main__ - *** Evaluate ***
+[INFO|trainer.py:777] 2026-09-27 23:05:47,551 >> The following columns in the evaluation set don't have a corresponding argument in `BertForQuestionAnswering.forward` and have been ignored: example_id, offset_mapping. If example_id, offset_mapping are not expected by `BertForQuestionAnswering.forward`,  you can safely ignore this message.
+[INFO|trainer.py:3200] 2026-09-27 23:05:47,554 >> ***** Running Evaluation *****
+[INFO|trainer.py:3202] 2026-09-27 23:05:47,554 >>   Num examples = 10784
+[INFO|trainer.py:3205] 2026-09-27 23:05:47,554 >>   Batch size = 8
+09/27/2026 23:07:09 - INFO - utils_qa - Post-processing 10570 example predictions split into 10784 features.
+  0%|          | 0/10570 [00:00<?, ?it/s]  0%|          | 34/10570 [00:00<00:31, 336.43it/s]  1%|          | 71/10570 [00:00<00:29, 352.78it/s]  1%|          | 108/10570 [00:00<00:29, 360.37it/s]  1%|▏         | 146/10570 [00:00<00:28, 364.76it/s]  2%|▏         | 183/10570 [00:00<00:28, 364.73it/s]  2%|▏         | 220/10570 [00:00<00:29, 355.07it/s]  2%|▏         | 256/10570 [00:00<00:31, 322.47it/s]  3%|▎         | 289/10570 [00:00<00:35, 287.15it/s]  3%|▎         | 326/10570 [00:00<00:33, 307.55it/s]  3%|▎         | 364/10570 [00:01<00:31, 325.73it/s]  4%|▍         | 400/10570 [00:01<00:30, 334.87it/s]  4%|▍         | 436/10570 [00:01<00:29, 339.83it/s]  4%|▍         | 472/10570 [00:01<00:29, 343.75it/s]  5%|▍         | 509/10570 [00:01<00:28, 350.69it/s]  5%|▌         | 546/10570 [00:01<00:28, 355.19it/s]  6%|▌         | 582/10570 [00:01<00:28, 355.47it/s]  6%|▌         | 618/10570 [00:01<00:28, 355.33it/s]  6%|▌         | 654/10570 [00:01<00:27, 356.54it/s]  7%|▋         | 691/10570 [00:02<00:27, 360.38it/s]  7%|▋         | 728/10570 [00:02<00:27, 355.09it/s]  7%|▋         | 764/10570 [00:02<00:27, 352.29it/s]  8%|▊         | 800/10570 [00:02<00:28, 342.76it/s]  8%|▊         | 835/10570 [00:02<00:28, 336.41it/s]  8%|▊         | 871/10570 [00:02<00:28, 341.28it/s]  9%|▊         | 906/10570 [00:02<00:28, 342.26it/s]  9%|▉         | 941/10570 [00:02<00:28, 340.48it/s]  9%|▉         | 976/10570 [00:02<00:28, 339.24it/s] 10%|▉         | 1010/10570 [00:02<00:28, 336.17it/s] 10%|▉         | 1044/10570 [00:03<00:28, 334.35it/s] 10%|█         | 1079/10570 [00:03<00:28, 336.08it/s] 11%|█         | 1113/10570 [00:03<00:28, 329.57it/s] 11%|█         | 1149/10570 [00:03<00:28, 336.27it/s] 11%|█         | 1186/10570 [00:03<00:27, 343.91it/s] 12%|█▏        | 1222/10570 [00:03<00:26, 346.42it/s] 12%|█▏        | 1257/10570 [00:03<00:27, 344.75it/s] 12%|█▏        | 1293/10570 [00:03<00:26, 349.10it/s] 13%|█▎        | 1329/10570 [00:03<00:26, 351.66it/s] 13%|█▎        | 1365/10570 [00:03<00:26, 352.74it/s] 13%|█▎        | 1401/10570 [00:04<00:26, 345.64it/s] 14%|█▎        | 1437/10570 [00:04<00:26, 347.39it/s] 14%|█▍        | 1473/10570 [00:04<00:26, 349.69it/s] 14%|█▍        | 1509/10570 [00:04<00:25, 352.40it/s] 15%|█▍        | 1545/10570 [00:04<00:25, 352.91it/s] 15%|█▍        | 1581/10570 [00:04<00:25, 352.91it/s] 15%|█▌        | 1618/10570 [00:04<00:25, 355.02it/s] 16%|█▌        | 1654/10570 [00:04<00:25, 355.73it/s] 16%|█▌        | 1692/10570 [00:04<00:24, 360.77it/s] 16%|█▋        | 1729/10570 [00:05<00:24, 359.08it/s] 17%|█▋        | 1765/10570 [00:05<00:24, 357.13it/s] 17%|█▋        | 1801/10570 [00:05<00:24, 357.07it/s] 17%|█▋        | 1837/10570 [00:05<00:24, 353.94it/s] 18%|█▊        | 1873/10570 [00:05<00:24, 355.51it/s] 18%|█▊        | 1911/10570 [00:05<00:24, 359.97it/s] 18%|█▊        | 1947/10570 [00:05<00:24, 358.72it/s] 19%|█▉        | 1984/10570 [00:05<00:23, 360.48it/s] 19%|█▉        | 2021/10570 [00:05<00:24, 355.72it/s] 19%|█▉        | 2058/10570 [00:05<00:23, 357.42it/s] 20%|█▉        | 2095/10570 [00:06<00:23, 360.14it/s] 20%|██        | 2132/10570 [00:06<00:25, 326.27it/s] 21%|██        | 2167/10570 [00:06<00:25, 331.77it/s] 21%|██        | 2203/10570 [00:06<00:24, 336.99it/s] 21%|██        | 2240/10570 [00:06<00:24, 343.94it/s] 22%|██▏       | 2275/10570 [00:06<00:24, 343.73it/s] 22%|██▏       | 2311/10570 [00:06<00:23, 346.93it/s] 22%|██▏       | 2346/10570 [00:06<00:23, 347.02it/s] 23%|██▎       | 2381/10570 [00:06<00:23, 344.44it/s] 23%|██▎       | 2416/10570 [00:06<00:23, 343.77it/s] 23%|██▎       | 2451/10570 [00:07<00:23, 341.26it/s] 24%|██▎       | 2487/10570 [00:07<00:23, 343.67it/s] 24%|██▍       | 2522/10570 [00:07<00:24, 326.07it/s] 24%|██▍       | 2555/10570 [00:07<00:24, 325.27it/s] 24%|██▍       | 2589/10570 [00:07<00:24, 328.31it/s] 25%|██▍       | 2625/10570 [00:07<00:23, 336.55it/s] 25%|██▌       | 2662/10570 [00:07<00:23, 343.29it/s] 26%|██▌       | 2698/10570 [00:07<00:22, 345.33it/s] 26%|██▌       | 2734/10570 [00:07<00:22, 349.51it/s] 26%|██▌       | 2772/10570 [00:08<00:21, 356.18it/s] 27%|██▋       | 2809/10570 [00:08<00:21, 359.86it/s] 27%|██▋       | 2846/10570 [00:08<00:21, 355.57it/s] 27%|██▋       | 2882/10570 [00:08<00:21, 350.53it/s] 28%|██▊       | 2918/10570 [00:08<00:21, 348.95it/s] 28%|██▊       | 2953/10570 [00:08<00:21, 348.42it/s] 28%|██▊       | 2988/10570 [00:08<00:21, 347.39it/s] 29%|██▊       | 3023/10570 [00:08<00:21, 347.00it/s] 29%|██▉       | 3058/10570 [00:08<00:21, 347.07it/s] 29%|██▉       | 3093/10570 [00:08<00:21, 344.85it/s] 30%|██▉       | 3128/10570 [00:09<00:21, 344.97it/s] 30%|██▉       | 3163/10570 [00:09<00:21, 342.39it/s] 30%|███       | 3198/10570 [00:09<00:21, 340.24it/s] 31%|███       | 3233/10570 [00:09<00:21, 339.16it/s] 31%|███       | 3267/10570 [00:09<00:21, 338.38it/s] 31%|███       | 3302/10570 [00:09<00:21, 339.67it/s] 32%|███▏      | 3337/10570 [00:09<00:21, 342.32it/s] 32%|███▏      | 3372/10570 [00:09<00:20, 343.88it/s] 32%|███▏      | 3407/10570 [00:09<00:20, 344.01it/s] 33%|███▎      | 3442/10570 [00:09<00:20, 343.58it/s] 33%|███▎      | 3477/10570 [00:10<00:20, 343.01it/s] 33%|███▎      | 3512/10570 [00:10<00:20, 342.02it/s] 34%|███▎      | 3548/10570 [00:10<00:20, 345.41it/s] 34%|███▍      | 3583/10570 [00:10<00:20, 341.23it/s] 34%|███▍      | 3618/10570 [00:10<00:20, 341.35it/s] 35%|███▍      | 3654/10570 [00:10<00:20, 344.37it/s] 35%|███▍      | 3689/10570 [00:10<00:19, 345.09it/s] 35%|███▌      | 3724/10570 [00:10<00:19, 343.40it/s] 36%|███▌      | 3759/10570 [00:10<00:19, 343.30it/s] 36%|███▌      | 3794/10570 [00:10<00:19, 344.64it/s] 36%|███▌      | 3829/10570 [00:11<00:19, 344.05it/s] 37%|███▋      | 3864/10570 [00:11<00:19, 345.09it/s] 37%|███▋      | 3899/10570 [00:11<00:19, 344.11it/s] 37%|███▋      | 3934/10570 [00:11<00:19, 344.16it/s] 38%|███▊      | 3969/10570 [00:11<00:19, 344.76it/s] 38%|███▊      | 4004/10570 [00:11<00:19, 344.06it/s] 38%|███▊      | 4039/10570 [00:11<00:18, 344.71it/s] 39%|███▊      | 4075/10570 [00:11<00:18, 347.03it/s] 39%|███▉      | 4110/10570 [00:11<00:19, 337.34it/s] 39%|███▉      | 4144/10570 [00:12<00:20, 318.27it/s] 40%|███▉      | 4177/10570 [00:12<00:22, 278.08it/s] 40%|███▉      | 4206/10570 [00:12<00:25, 247.05it/s] 40%|████      | 4237/10570 [00:12<00:24, 262.25it/s] 40%|████      | 4265/10570 [00:12<00:25, 244.96it/s] 41%|████      | 4291/10570 [00:12<00:30, 205.40it/s] 41%|████      | 4314/10570 [00:12<00:31, 200.40it/s] 41%|████      | 4349/10570 [00:12<00:26, 235.25it/s] 41%|████▏     | 4383/10570 [00:13<00:23, 261.38it/s] 42%|████▏     | 4417/10570 [00:13<00:21, 281.86it/s] 42%|████▏     | 4452/10570 [00:13<00:20, 299.92it/s] 42%|████▏     | 4488/10570 [00:13<00:19, 314.91it/s] 43%|████▎     | 4521/10570 [00:13<00:19, 313.27it/s] 43%|████▎     | 4554/10570 [00:13<00:18, 317.37it/s] 43%|████▎     | 4588/10570 [00:13<00:18, 322.26it/s] 44%|████▎     | 4621/10570 [00:13<00:19, 311.67it/s] 44%|████▍     | 4653/10570 [00:13<00:19, 303.27it/s] 44%|████▍     | 4686/10570 [00:14<00:18, 310.31it/s] 45%|████▍     | 4721/10570 [00:14<00:18, 321.68it/s] 45%|████▍     | 4755/10570 [00:14<00:18, 322.38it/s] 45%|████▌     | 4788/10570 [00:14<00:18, 310.96it/s] 46%|████▌     | 4824/10570 [00:14<00:17, 323.10it/s] 46%|████▌     | 4857/10570 [00:14<00:18, 304.76it/s] 46%|████▋     | 4892/10570 [00:14<00:17, 316.74it/s] 47%|████▋     | 4927/10570 [00:14<00:17, 324.95it/s] 47%|████▋     | 4961/10570 [00:14<00:17, 329.23it/s] 47%|████▋     | 4995/10570 [00:14<00:16, 328.96it/s] 48%|████▊     | 5029/10570 [00:15<00:16, 327.94it/s] 48%|████▊     | 5064/10570 [00:15<00:16, 333.64it/s] 48%|████▊     | 5098/10570 [00:15<00:16, 332.75it/s] 49%|████▊     | 5133/10570 [00:15<00:16, 337.27it/s] 49%|████▉     | 5168/10570 [00:15<00:15, 338.55it/s] 49%|████▉     | 5203/10570 [00:15<00:15, 339.08it/s] 50%|████▉     | 5238/10570 [00:15<00:15, 339.88it/s] 50%|████▉     | 5273/10570 [00:15<00:15, 339.90it/s] 50%|█████     | 5309/10570 [00:15<00:15, 345.00it/s] 51%|█████     | 5344/10570 [00:16<00:15, 343.91it/s] 51%|█████     | 5379/10570 [00:16<00:15, 344.03it/s] 51%|█████     | 5414/10570 [00:16<00:14, 344.49it/s] 52%|█████▏    | 5449/10570 [00:16<00:15, 325.75it/s] 52%|█████▏    | 5482/10570 [00:16<00:16, 315.19it/s] 52%|█████▏    | 5514/10570 [00:16<00:16, 314.10it/s] 52%|█████▏    | 5548/10570 [00:16<00:15, 318.64it/s] 53%|█████▎    | 5582/10570 [00:16<00:15, 322.67it/s] 53%|█████▎    | 5616/10570 [00:16<00:15, 326.01it/s] 53%|█████▎    | 5649/10570 [00:16<00:15, 326.98it/s] 54%|█████▍    | 5682/10570 [00:17<00:15, 316.68it/s] 54%|█████▍    | 5718/10570 [00:17<00:14, 326.95it/s] 54%|█████▍    | 5752/10570 [00:17<00:14, 328.33it/s] 55%|█████▍    | 5786/10570 [00:17<00:14, 329.80it/s] 55%|█████▌    | 5820/10570 [00:17<00:14, 330.75it/s] 55%|█████▌    | 5854/10570 [00:17<00:14, 332.36it/s] 56%|█████▌    | 5889/10570 [00:17<00:13, 336.69it/s] 56%|█████▌    | 5923/10570 [00:17<00:13, 334.10it/s] 56%|█████▋    | 5958/10570 [00:17<00:13, 337.85it/s] 57%|█████▋    | 5993/10570 [00:17<00:13, 339.12it/s] 57%|█████▋    | 6027/10570 [00:18<00:13, 336.56it/s] 57%|█████▋    | 6061/10570 [00:18<00:13, 330.46it/s] 58%|█████▊    | 6095/10570 [00:18<00:13, 330.73it/s] 58%|█████▊    | 6130/10570 [00:18<00:13, 334.54it/s] 58%|█████▊    | 6165/10570 [00:18<00:13, 336.63it/s] 59%|█████▊    | 6199/10570 [00:18<00:12, 336.58it/s] 59%|█████▉    | 6233/10570 [00:18<00:13, 320.73it/s] 59%|█████▉    | 6267/10570 [00:18<00:13, 325.09it/s] 60%|█████▉    | 6302/10570 [00:18<00:12, 332.13it/s] 60%|█████▉    | 6336/10570 [00:19<00:12, 333.80it/s] 60%|██████    | 6371/10570 [00:19<00:12, 337.31it/s] 61%|██████    | 6405/10570 [00:19<00:12, 324.19it/s] 61%|██████    | 6441/10570 [00:19<00:12, 332.50it/s] 61%|██████▏   | 6476/10570 [00:19<00:12, 336.83it/s] 62%|██████▏   | 6511/10570 [00:19<00:11, 338.88it/s] 62%|██████▏   | 6546/10570 [00:19<00:11, 341.29it/s] 62%|██████▏   | 6581/10570 [00:19<00:11, 341.29it/s] 63%|██████▎   | 6616/10570 [00:19<00:11, 339.23it/s] 63%|██████▎   | 6651/10570 [00:19<00:11, 342.29it/s] 63%|██████▎   | 6686/10570 [00:20<00:11, 342.15it/s] 64%|██████▎   | 6721/10570 [00:20<00:11, 336.44it/s] 64%|██████▍   | 6757/10570 [00:20<00:11, 341.29it/s] 64%|██████▍   | 6792/10570 [00:20<00:10, 343.48it/s] 65%|██████▍   | 6827/10570 [00:20<00:11, 338.31it/s] 65%|██████▍   | 6861/10570 [00:20<00:11, 336.94it/s] 65%|██████▌   | 6895/10570 [00:20<00:10, 335.91it/s] 66%|██████▌   | 6930/10570 [00:20<00:10, 338.57it/s] 66%|██████▌   | 6966/10570 [00:20<00:10, 342.25it/s] 66%|██████▌   | 7002/10570 [00:20<00:10, 344.90it/s] 67%|██████▋   | 7038/10570 [00:21<00:10, 346.59it/s] 67%|██████▋   | 7073/10570 [00:21<00:10, 345.29it/s] 67%|██████▋   | 7108/10570 [00:21<00:10, 345.62it/s] 68%|██████▊   | 7144/10570 [00:21<00:09, 348.42it/s] 68%|██████▊   | 7179/10570 [00:21<00:09, 347.29it/s] 68%|██████▊   | 7214/10570 [00:21<00:09, 344.96it/s] 69%|██████▊   | 7249/10570 [00:21<00:09, 343.38it/s] 69%|██████▉   | 7284/10570 [00:21<00:09, 342.25it/s] 69%|██████▉   | 7320/10570 [00:21<00:09, 344.49it/s] 70%|██████▉   | 7355/10570 [00:22<00:10, 314.52it/s] 70%|██████▉   | 7389/10570 [00:22<00:09, 320.94it/s] 70%|███████   | 7425/10570 [00:22<00:09, 330.75it/s] 71%|███████   | 7459/10570 [00:22<00:09, 333.09it/s] 71%|███████   | 7494/10570 [00:22<00:09, 336.22it/s] 71%|███████   | 7530/10570 [00:22<00:08, 341.42it/s] 72%|███████▏  | 7565/10570 [00:22<00:08, 342.45it/s] 72%|███████▏  | 7601/10570 [00:22<00:08, 345.49it/s] 72%|███████▏  | 7636/10570 [00:22<00:08, 345.70it/s] 73%|███████▎  | 7671/10570 [00:22<00:08, 331.50it/s] 73%|███████▎  | 7707/10570 [00:23<00:08, 337.78it/s] 73%|███████▎  | 7743/10570 [00:23<00:08, 341.90it/s] 74%|███████▎  | 7778/10570 [00:23<00:08, 325.20it/s] 74%|███████▍  | 7812/10570 [00:23<00:08, 328.44it/s] 74%|███████▍  | 7847/10570 [00:23<00:08, 332.44it/s] 75%|███████▍  | 7882/10570 [00:23<00:07, 336.29it/s] 75%|███████▍  | 7918/10570 [00:23<00:07, 341.01it/s] 75%|███████▌  | 7954/10570 [00:23<00:07, 343.99it/s] 76%|███████▌  | 7989/10570 [00:23<00:07, 342.30it/s] 76%|███████▌  | 8024/10570 [00:24<00:07, 341.12it/s] 76%|███████▌  | 8059/10570 [00:24<00:07, 337.14it/s] 77%|███████▋  | 8095/10570 [00:24<00:07, 343.38it/s] 77%|███████▋  | 8130/10570 [00:24<00:07, 344.45it/s] 77%|███████▋  | 8165/10570 [00:24<00:07, 337.74it/s] 78%|███████▊  | 8199/10570 [00:24<00:07, 333.92it/s] 78%|███████▊  | 8233/10570 [00:24<00:07, 332.55it/s] 78%|███████▊  | 8267/10570 [00:24<00:06, 329.78it/s] 79%|███████▊  | 8300/10570 [00:24<00:07, 317.59it/s] 79%|███████▉  | 8333/10570 [00:24<00:06, 320.95it/s] 79%|███████▉  | 8368/10570 [00:25<00:06, 329.29it/s] 79%|███████▉  | 8403/10570 [00:25<00:06, 335.13it/s] 80%|███████▉  | 8439/10570 [00:25<00:06, 340.22it/s] 80%|████████  | 8475/10570 [00:25<00:06, 344.79it/s] 81%|████████  | 8510/10570 [00:25<00:05, 343.99it/s] 81%|████████  | 8546/10570 [00:25<00:05, 346.53it/s] 81%|████████  | 8581/10570 [00:25<00:05, 343.09it/s] 82%|████████▏ | 8616/10570 [00:25<00:05, 345.02it/s] 82%|████████▏ | 8651/10570 [00:25<00:05, 343.19it/s] 82%|████████▏ | 8686/10570 [00:25<00:05, 345.13it/s] 83%|████████▎ | 8721/10570 [00:26<00:05, 343.79it/s] 83%|████████▎ | 8756/10570 [00:26<00:05, 341.07it/s] 83%|████████▎ | 8791/10570 [00:26<00:05, 338.37it/s] 83%|████████▎ | 8825/10570 [00:26<00:05, 337.92it/s] 84%|████████▍ | 8860/10570 [00:26<00:05, 339.56it/s] 84%|████████▍ | 8895/10570 [00:26<00:04, 340.02it/s] 84%|████████▍ | 8930/10570 [00:26<00:04, 341.84it/s] 85%|████████▍ | 8965/10570 [00:26<00:04, 341.70it/s] 85%|████████▌ | 9001/10570 [00:26<00:04, 344.08it/s] 85%|████████▌ | 9036/10570 [00:26<00:04, 341.78it/s] 86%|████████▌ | 9071/10570 [00:27<00:04, 342.31it/s] 86%|████████▌ | 9106/10570 [00:27<00:04, 340.94it/s] 86%|████████▋ | 9141/10570 [00:27<00:04, 343.22it/s] 87%|████████▋ | 9176/10570 [00:27<00:04, 341.08it/s] 87%|████████▋ | 9211/10570 [00:27<00:03, 342.34it/s] 87%|████████▋ | 9247/10570 [00:27<00:03, 345.42it/s] 88%|████████▊ | 9282/10570 [00:27<00:03, 346.29it/s] 88%|████████▊ | 9317/10570 [00:27<00:03, 342.86it/s] 88%|████████▊ | 9352/10570 [00:27<00:03, 343.45it/s] 89%|████████▉ | 9387/10570 [00:28<00:03, 343.63it/s] 89%|████████▉ | 9422/10570 [00:28<00:03, 343.84it/s] 89%|████████▉ | 9458/10570 [00:28<00:03, 346.70it/s] 90%|████████▉ | 9493/10570 [00:28<00:03, 345.76it/s] 90%|█████████ | 9529/10570 [00:28<00:02, 347.65it/s] 90%|█████████ | 9565/10570 [00:28<00:02, 348.95it/s] 91%|█████████ | 9600/10570 [00:28<00:02, 346.55it/s] 91%|█████████ | 9636/10570 [00:28<00:02, 348.04it/s] 92%|█████████▏| 9672/10570 [00:28<00:02, 349.10it/s] 92%|█████████▏| 9708/10570 [00:28<00:02, 351.19it/s] 92%|█████████▏| 9744/10570 [00:29<00:02, 352.54it/s] 93%|█████████▎| 9780/10570 [00:29<00:02, 352.00it/s] 93%|█████████▎| 9816/10570 [00:29<00:02, 349.53it/s] 93%|█████████▎| 9851/10570 [00:29<00:02, 343.43it/s] 94%|█████████▎| 9886/10570 [00:29<00:01, 345.09it/s] 94%|█████████▍| 9921/10570 [00:29<00:01, 344.38it/s] 94%|█████████▍| 9957/10570 [00:29<00:01, 346.31it/s] 95%|█████████▍| 9992/10570 [00:29<00:01, 341.07it/s] 95%|█████████▍| 10028/10570 [00:29<00:01, 345.68it/s] 95%|█████████▌| 10063/10570 [00:29<00:01, 346.22it/s] 96%|█████████▌| 10098/10570 [00:30<00:01, 346.16it/s] 96%|█████████▌| 10133/10570 [00:30<00:01, 346.94it/s] 96%|█████████▌| 10168/10570 [00:30<00:01, 336.06it/s] 97%|█████████▋| 10203/10570 [00:30<00:01, 339.55it/s] 97%|█████████▋| 10238/10570 [00:30<00:00, 342.55it/s] 97%|█████████▋| 10273/10570 [00:30<00:00, 342.01it/s] 98%|█████████▊| 10308/10570 [00:30<00:00, 343.26it/s] 98%|█████████▊| 10343/10570 [00:30<00:00, 344.58it/s] 98%|█████████▊| 10378/10570 [00:30<00:00, 342.15it/s] 99%|█████████▊| 10413/10570 [00:30<00:00, 342.67it/s] 99%|█████████▉| 10448/10570 [00:31<00:00, 341.19it/s] 99%|█████████▉| 10483/10570 [00:31<00:00, 337.73it/s]100%|█████████▉| 10519/10570 [00:31<00:00, 341.75it/s]09/27/2026 23:07:41 - INFO - utils_qa - Saving predictions to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/eval_predictions.json.
+09/27/2026 23:07:41 - INFO - utils_qa - Saving nbest_preds to /mnt/lustre/scratch/nvme/SLURM/10027452/bert_squad_output/eval_nbest_predictions.json.
+100%|█████████▉| 10555/10570 [00:31<00:00, 345.13it/s]100%|██████████| 10570/10570 [00:31<00:00, 336.20it/s]
+[INFO|modelcard.py:451] 2026-09-27 23:07:46,703 >> Dropping the following result as it does not have all the necessary fields:
+{'task': {'name': 'Question Answering', 'type': 'question-answering'}, 'dataset': {'name': 'squad', 'type': 'squad', 'config': 'plain_text', 'split': 'validation', 'args': 'plain_text'}}
+{'eval_exact_match': 81.06906338694418, 'eval_f1': 88.56633447610585, 'eval_runtime': 69.7289, 'eval_samples_per_second': 154.656, 'eval_steps_per_second': 19.332, 'epoch': 2.0}
+***** eval metrics *****
+  epoch                   =        2.0
+  eval_exact_match        =    81.0691
+  eval_f1                 =    88.5663
+  eval_runtime            = 0:01:09.72
+  eval_samples            =      10784
+  eval_samples_per_second =    154.656
+  eval_steps_per_second   =     19.332
