@@ -31,5 +31,6 @@ srun python run_qa.py \
   --logging_dir $LUSTRE_SCRATCH/bert_squad_logs
 
 # Copiar a almacenamiento persistente los logs
-cp -r $LUSTRE_SCRATCH/bert_squad_logs $STORE/myproject/bert_squad_logs
-cp -r $LUSTRE_SCRATCH/bert_squad_output $STORE/myproject/bert_squad_output
+cp -r $LUSTRE_SCRATCH/bert_squad_logs $STORE/HPCToolsLabIA
+/bert_squad_logs
+cp -r $LUSTRE_SCRATCH/bert_squad_output $STORE/HPCToolsLabIA/bert_squad_output

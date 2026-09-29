@@ -14,10 +14,10 @@ Descargados el 2026-09-27. Tag 4.30.2 para coincidir con mi versión de transfor
 |---|---|
 | Epochs | 2.0 |
 | Train loss (final) | 0.9871 |
-| Train runtime | 0:55:01.65 (≈ 3,301.65 s) |
+| Train runtime | 0:54:05.61 |
 | Train samples | 88,524 |
-| Train samples/second | 53.624 |
-| Train steps/second | 4.469 |
+| Train samples/second | 54.55 |
+| Train steps/second | 4.546 |
 
 ### Configuration
 
