@@ -32,4 +32,6 @@ Descargados el 2026-09-27. Tag 4.30.2 para coincidir con mi versión de transfor
 | Max sequence length | 384 |
 | Doc stride | 128 |
 
+### Evolution of loss during training
+![training loss](images/loss-evo.png)
 ---
