@@ -1,4 +1,0 @@
-slurmstepd: info: Setting TMPDIR to /scratch/10057181. Previous errors about TMPDIR can be discarded
-matmul TF32: False
-cudnn TF32: True
-PyTorch version: 1.13.1+cu117

@@ -1,268 +1,0 @@
-slurmstepd: info: Setting TMPDIR to /scratch/10027015. Previous errors about TMPDIR can be discarded
-2026-09-27 22:00:20.859645: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
-To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2026-09-27 22:00:22.253414: I tensorflow/core/util/port.cc:104] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2026-09-27 22:00:27.706679: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /mnt/netapp1/Optcesga_FT2_RHEL7/2020/gentoo/22072020/usr/gr/lib64
-2026-09-27 22:00:27.707445: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /mnt/netapp1/Optcesga_FT2_RHEL7/2020/gentoo/22072020/usr/gr/lib64
-2026-09-27 22:00:27.707455: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
-09/27/2026 22:00:35 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
-09/27/2026 22:00:35 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
-_n_gpu=1,
-adafactor=False,
-adam_beta1=0.9,
-adam_beta2=0.999,
-adam_epsilon=1e-08,
-auto_find_batch_size=False,
-bf16=False,
-bf16_full_eval=False,
-data_seed=None,
-dataloader_drop_last=False,
-dataloader_num_workers=0,
-dataloader_pin_memory=True,
-ddp_backend=None,
-ddp_bucket_cap_mb=None,
-ddp_find_unused_parameters=None,
-ddp_timeout=1800,
-debug=[],
-deepspeed=None,
-disable_tqdm=True,
-do_eval=True,
-do_predict=False,
-do_train=True,
-eval_accumulation_steps=None,
-eval_delay=0,
-eval_steps=None,
-evaluation_strategy=no,
-fp16=False,
-fp16_backend=auto,
-fp16_full_eval=False,
-fp16_opt_level=O1,
-fsdp=[],
-fsdp_config={'fsdp_min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
-fsdp_min_num_params=0,
-fsdp_transformer_layer_cls_to_wrap=None,
-full_determinism=False,
-gradient_accumulation_steps=1,
-gradient_checkpointing=False,
-greater_is_better=None,
-group_by_length=False,
-half_precision_backend=auto,
-hub_model_id=None,
-hub_private_repo=False,
-hub_strategy=every_save,
-hub_token=<HUB_TOKEN>,
-ignore_data_skip=False,
-include_inputs_for_metrics=False,
-jit_mode_eval=False,
-label_names=None,
-label_smoothing_factor=0.0,
-learning_rate=3e-05,
-length_column_name=length,
-load_best_model_at_end=False,
-local_rank=0,
-log_level=passive,
-log_level_replica=warning,
-log_on_each_node=True,
-logging_dir=/mnt/lustre/scratch/nvme/SLURM/10027015/bert_squad_logs,
-logging_first_step=False,
-logging_nan_inf_filter=True,
-logging_steps=100,
-logging_strategy=steps,
-lr_scheduler_type=linear,
-max_grad_norm=1.0,
-max_steps=-1,
-metric_for_best_model=None,
-mp_parameters=,
-no_cuda=False,
-num_train_epochs=2.0,
-optim=adamw_hf,
-optim_args=None,
-output_dir=/mnt/lustre/scratch/nvme/SLURM/10027015/bert_squad_output,
-overwrite_output_dir=False,
-past_index=-1,
-per_device_eval_batch_size=8,
-per_device_train_batch_size=12,
-prediction_loss_only=False,
-push_to_hub=False,
-push_to_hub_model_id=None,
-push_to_hub_organization=None,
-push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
-ray_scope=last,
-remove_unused_columns=True,
-report_to=['tensorboard'],
-resume_from_checkpoint=None,
-run_name=/mnt/lustre/scratch/nvme/SLURM/10027015/bert_squad_output,
-save_on_each_node=False,
-save_safetensors=False,
-save_steps=500,
-save_strategy=steps,
-save_total_limit=None,
-seed=42,
-sharded_ddp=[],
-skip_memory_metrics=True,
-tf32=None,
-torch_compile=False,
-torch_compile_backend=None,
-torch_compile_mode=None,
-torchdynamo=None,
-tpu_metrics_debug=False,
-tpu_num_cores=None,
-use_ipex=False,
-use_legacy_prediction_loop=False,
-use_mps_device=False,
-warmup_ratio=0.0,
-warmup_steps=0,
-weight_decay=0.0,
-xpu_backend=None,
-)
-09/27/2026 22:00:37 - INFO - datasets.builder - Using custom data configuration plain_text-7d14fdbf55ecc00c
-09/27/2026 22:00:37 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
-09/27/2026 22:00:37 - INFO - datasets.info - Loading Dataset info from /mnt/netapp2/Store_uni/home/ulc/cursos/curso356/hf_cache/datasets/parquet/plain_text-7d14fdbf55ecc00c/0.0.0/14a00e99c0d15a23649d0db8944380ac81082d4b021f398733dd84f3a6c569a7
-09/27/2026 22:00:37 - WARNING - datasets.builder - Found cached dataset parquet (/mnt/netapp2/Store_uni/home/ulc/cursos/curso356/hf_cache/datasets/parquet/plain_text-7d14fdbf55ecc00c/0.0.0/14a00e99c0d15a23649d0db8944380ac81082d4b021f398733dd84f3a6c569a7)
-09/27/2026 22:00:37 - INFO - datasets.info - Loading Dataset info from /mnt/netapp2/Store_uni/home/ulc/cursos/curso356/hf_cache/datasets/parquet/plain_text-7d14fdbf55ecc00c/0.0.0/14a00e99c0d15a23649d0db8944380ac81082d4b021f398733dd84f3a6c569a7
-  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:00<00:00,  7.91it/s]100%|██████████| 2/2 [00:00<00:00, 14.30it/s]
-[INFO|configuration_utils.py:669] 2026-09-27 22:00:37,392 >> loading configuration file config.json from cache at /mnt/netapp2/Store_uni//home/ulc/cursos/curso356/hf_cache/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/config.json
-[INFO|configuration_utils.py:725] 2026-09-27 22:00:37,452 >> Model config BertConfig {
-  "_name_or_path": "bert-base-uncased",
-  "architectures": [
-    "BertForMaskedLM"
-  ],
-  "attention_probs_dropout_prob": 0.1,
-  "classifier_dropout": null,
-  "gradient_checkpointing": false,
-  "hidden_act": "gelu",
-  "hidden_dropout_prob": 0.1,
-  "hidden_size": 768,
-  "initializer_range": 0.02,
-  "intermediate_size": 3072,
-  "layer_norm_eps": 1e-12,
-  "max_position_embeddings": 512,
-  "model_type": "bert",
-  "num_attention_heads": 12,
-  "num_hidden_layers": 12,
-  "pad_token_id": 0,
-  "position_embedding_type": "absolute",
-  "transformers_version": "4.30.2",
-  "type_vocab_size": 2,
-  "use_cache": true,
-  "vocab_size": 30522
-}
-
-[INFO|configuration_utils.py:669] 2026-09-27 22:00:37,589 >> loading configuration file config.json from cache at /mnt/netapp2/Store_uni//home/ulc/cursos/curso356/hf_cache/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/config.json
-[INFO|configuration_utils.py:725] 2026-09-27 22:00:37,589 >> Model config BertConfig {
-  "_name_or_path": "bert-base-uncased",
-  "architectures": [
-    "BertForMaskedLM"
-  ],
-  "attention_probs_dropout_prob": 0.1,
-  "classifier_dropout": null,
-  "gradient_checkpointing": false,
-  "hidden_act": "gelu",
-  "hidden_dropout_prob": 0.1,
-  "hidden_size": 768,
-  "initializer_range": 0.02,
-  "intermediate_size": 3072,
-  "layer_norm_eps": 1e-12,
-  "max_position_embeddings": 512,
-  "model_type": "bert",
-  "num_attention_heads": 12,
-  "num_hidden_layers": 12,
-  "pad_token_id": 0,
-  "position_embedding_type": "absolute",
-  "transformers_version": "4.30.2",
-  "type_vocab_size": 2,
-  "use_cache": true,
-  "vocab_size": 30522
-}
-
-[INFO|tokenization_utils_base.py:1823] 2026-09-27 22:00:37,593 >> loading file vocab.txt from cache at /mnt/netapp2/Store_uni//home/ulc/cursos/curso356/hf_cache/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/vocab.txt
-[INFO|tokenization_utils_base.py:1823] 2026-09-27 22:00:37,593 >> loading file tokenizer.json from cache at /mnt/netapp2/Store_uni//home/ulc/cursos/curso356/hf_cache/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer.json
-[INFO|tokenization_utils_base.py:1823] 2026-09-27 22:00:37,593 >> loading file added_tokens.json from cache at None
-[INFO|tokenization_utils_base.py:1823] 2026-09-27 22:00:37,593 >> loading file special_tokens_map.json from cache at None
-[INFO|tokenization_utils_base.py:1823] 2026-09-27 22:00:37,593 >> loading file tokenizer_config.json from cache at /mnt/netapp2/Store_uni//home/ulc/cursos/curso356/hf_cache/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer_config.json
-[INFO|configuration_utils.py:669] 2026-09-27 22:00:37,594 >> loading configuration file config.json from cache at /mnt/netapp2/Store_uni//home/ulc/cursos/curso356/hf_cache/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/config.json
-[INFO|configuration_utils.py:725] 2026-09-27 22:00:37,595 >> Model config BertConfig {
-  "_name_or_path": "bert-base-uncased",
-  "architectures": [
-    "BertForMaskedLM"
-  ],
-  "attention_probs_dropout_prob": 0.1,
-  "classifier_dropout": null,
-  "gradient_checkpointing": false,
-  "hidden_act": "gelu",
-  "hidden_dropout_prob": 0.1,
-  "hidden_size": 768,
-  "initializer_range": 0.02,
-  "intermediate_size": 3072,
-  "layer_norm_eps": 1e-12,
-  "max_position_embeddings": 512,
-  "model_type": "bert",
-  "num_attention_heads": 12,
-  "num_hidden_layers": 12,
-  "pad_token_id": 0,
-  "position_embedding_type": "absolute",
-  "transformers_version": "4.30.2",
-  "type_vocab_size": 2,
-  "use_cache": true,
-  "vocab_size": 30522
-}
-
-[INFO|modeling_utils.py:2578] 2026-09-27 22:00:37,760 >> loading weights file model.safetensors from cache at /mnt/netapp2/Store_uni//home/ulc/cursos/curso356/hf_cache/hub/models--bert-base-uncased/snapshots/86b5e0934494bd15c9632b12f734a8a67f723594/model.safetensors
-[WARNING|modeling_utils.py:3286] 2026-09-27 22:00:40,515 >> Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForQuestionAnswering: ['cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight']
-- This IS expected if you are initializing BertForQuestionAnswering from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing BertForQuestionAnswering from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-[WARNING|modeling_utils.py:3298] 2026-09-27 22:00:40,515 >> Some weights of BertForQuestionAnswering were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['qa_outputs.bias', 'qa_outputs.weight']
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-09/27/2026 22:00:40 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/netapp2/Store_uni/home/ulc/cursos/curso356/hf_cache/datasets/parquet/plain_text-7d14fdbf55ecc00c/0.0.0/14a00e99c0d15a23649d0db8944380ac81082d4b021f398733dd84f3a6c569a7/cache-a2ee3f7f174ec1fa.arrow
-09/27/2026 22:00:41 - INFO - datasets.arrow_dataset - Caching processed dataset at /mnt/netapp2/Store_uni/home/ulc/cursos/curso356/hf_cache/datasets/parquet/plain_text-7d14fdbf55ecc00c/0.0.0/14a00e99c0d15a23649d0db8944380ac81082d4b021f398733dd84f3a6c569a7/cache-7187dc4894ad724a.arrow
-Running tokenizer on train dataset:   0%|          | 0/2000 [00:00<?, ? examples/s]Running tokenizer on train dataset:  50%|█████     | 1000/2000 [00:00<00:00, 2688.23 examples/s]Running tokenizer on train dataset: 100%|██████████| 2000/2000 [00:00<00:00, 3120.98 examples/s]                                                                                                Running tokenizer on validation dataset:   0%|          | 0/2000 [00:00<?, ? examples/s]Running tokenizer on validation dataset:  50%|█████     | 1000/2000 [00:00<00:00, 3187.75 examples/s]Running tokenizer on validation dataset: 100%|██████████| 2000/2000 [00:00<00:00, 3269.88 examples/s]                                                                                                     /mnt/netapp2/Store_uni/home/ulc/cursos/curso356/myvenv/lib/python3.7/site-packages/transformers/optimization.py:415: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
-  FutureWarning,
-[INFO|trainer.py:1786] 2026-09-27 22:00:51,177 >> ***** Running training *****
-[INFO|trainer.py:1787] 2026-09-27 22:00:51,177 >>   Num examples = 2,000
-[INFO|trainer.py:1788] 2026-09-27 22:00:51,177 >>   Num Epochs = 2
-[INFO|trainer.py:1789] 2026-09-27 22:00:51,177 >>   Instantaneous batch size per device = 12
-[INFO|trainer.py:1790] 2026-09-27 22:00:51,177 >>   Total train batch size (w. parallel, distributed & accumulation) = 12
-[INFO|trainer.py:1791] 2026-09-27 22:00:51,177 >>   Gradient Accumulation steps = 1
-[INFO|trainer.py:1792] 2026-09-27 22:00:51,177 >>   Total optimization steps = 334
-[INFO|trainer.py:1793] 2026-09-27 22:00:51,178 >>   Number of trainable parameters = 108,893,186
-[INFO|trainer.py:2053] 2026-09-27 22:02:08,092 >> 
-
-Training completed. Do not forget to share your model on huggingface.co/models =)
-
-
-[INFO|trainer.py:2926] 2026-09-27 22:02:08,094 >> Saving model checkpoint to /mnt/lustre/scratch/nvme/SLURM/10027015/bert_squad_output
-[INFO|configuration_utils.py:458] 2026-09-27 22:02:08,096 >> Configuration saved in /mnt/lustre/scratch/nvme/SLURM/10027015/bert_squad_output/config.json
-[INFO|modeling_utils.py:1853] 2026-09-27 22:02:08,568 >> Model weights saved in /mnt/lustre/scratch/nvme/SLURM/10027015/bert_squad_output/pytorch_model.bin
-[INFO|tokenization_utils_base.py:2194] 2026-09-27 22:02:08,569 >> tokenizer config file saved in /mnt/lustre/scratch/nvme/SLURM/10027015/bert_squad_output/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2201] 2026-09-27 22:02:08,570 >> Special tokens file saved in /mnt/lustre/scratch/nvme/SLURM/10027015/bert_squad_output/special_tokens_map.json
-{'loss': 4.0723, 'learning_rate': 2.1017964071856288e-05, 'epoch': 0.6}
-{'loss': 2.3122, 'learning_rate': 1.2035928143712574e-05, 'epoch': 1.2}
-{'loss': 1.8311, 'learning_rate': 3.053892215568862e-06, 'epoch': 1.8}
-{'train_runtime': 76.9139, 'train_samples_per_second': 52.006, 'train_steps_per_second': 4.343, 'train_loss': 2.6358218164501075, 'epoch': 2.0}
-***** train metrics *****
-  epoch                    =        2.0
-  train_loss               =     2.6358
-  train_runtime            = 0:01:16.91
-  train_samples            =       2000
-  train_samples_per_second =     52.006
-  train_steps_per_second   =      4.343
-09/27/2026 22:02:08 - INFO - __main__ - *** Evaluate ***
-[INFO|trainer.py:777] 2026-09-27 22:02:08,603 >> The following columns in the evaluation set don't have a corresponding argument in `BertForQuestionAnswering.forward` and have been ignored: offset_mapping, example_id. If offset_mapping, example_id are not expected by `BertForQuestionAnswering.forward`,  you can safely ignore this message.
-[INFO|trainer.py:3200] 2026-09-27 22:02:08,605 >> ***** Running Evaluation *****
-[INFO|trainer.py:3202] 2026-09-27 22:02:08,605 >>   Num examples = 2000
-[INFO|trainer.py:3205] 2026-09-27 22:02:08,605 >>   Batch size = 8
-09/27/2026 22:02:23 - INFO - utils_qa - Post-processing 2000 example predictions split into 2000 features.
-  0%|          | 0/2000 [00:00<?, ?it/s]  2%|▏         | 36/2000 [00:00<00:05, 351.92it/s]  4%|▎         | 73/2000 [00:00<00:05, 361.27it/s]  6%|▌         | 111/2000 [00:00<00:05, 366.87it/s]  7%|▋         | 149/2000 [00:00<00:05, 369.53it/s]  9%|▉         | 186/2000 [00:00<00:04, 369.10it/s] 11%|█         | 223/2000 [00:00<00:04, 357.65it/s] 13%|█▎        | 259/2000 [00:00<00:05, 317.84it/s] 15%|█▍        | 292/2000 [00:00<00:05, 293.49it/s] 16%|█▋        | 329/2000 [00:00<00:05, 313.23it/s] 18%|█▊        | 367/2000 [00:01<00:04, 331.22it/s] 20%|██        | 403/2000 [00:01<00:04, 339.03it/s] 22%|██▏       | 439/2000 [00:01<00:04, 344.02it/s] 24%|██▍       | 475/2000 [00:01<00:04, 347.80it/s] 26%|██▌       | 513/2000 [00:01<00:04, 355.26it/s] 28%|██▊       | 550/2000 [00:01<00:04, 358.79it/s] 29%|██▉       | 587/2000 [00:01<00:03, 359.18it/s] 31%|███       | 624/2000 [00:01<00:03, 359.92it/s] 33%|███▎      | 661/2000 [00:01<00:03, 360.29it/s] 35%|███▍      | 698/2000 [00:02<00:03, 361.92it/s] 37%|███▋      | 735/2000 [00:02<00:03, 356.58it/s] 39%|███▊      | 771/2000 [00:02<00:03, 352.84it/s] 40%|████      | 807/2000 [00:02<00:03, 341.63it/s] 42%|████▏     | 842/2000 [00:02<00:03, 340.18it/s] 44%|████▍     | 878/2000 [00:02<00:03, 345.41it/s] 46%|████▌     | 913/2000 [00:02<00:03, 343.71it/s] 47%|████▋     | 949/2000 [00:02<00:03, 345.96it/s] 49%|████▉     | 984/2000 [00:02<00:02, 345.30it/s] 51%|█████     | 1019/2000 [00:02<00:02, 344.79it/s] 53%|█████▎    | 1054/2000 [00:03<00:02, 345.11it/s] 54%|█████▍    | 1089/2000 [00:03<00:02, 346.11it/s] 56%|█████▌    | 1124/2000 [00:03<00:02, 338.67it/s] 58%|█████▊    | 1161/2000 [00:03<00:02, 347.46it/s] 60%|█████▉    | 1198/2000 [00:03<00:02, 353.72it/s] 62%|██████▏   | 1235/2000 [00:03<00:02, 357.56it/s] 64%|██████▎   | 1271/2000 [00:03<00:02, 355.44it/s] 65%|██████▌   | 1308/2000 [00:03<00:01, 359.42it/s] 67%|██████▋   | 1345/2000 [00:03<00:01, 360.38it/s] 69%|██████▉   | 1382/2000 [00:03<00:01, 357.46it/s] 71%|███████   | 1418/2000 [00:04<00:01, 355.14it/s] 73%|███████▎  | 1454/2000 [00:04<00:01, 356.06it/s] 74%|███████▍  | 1490/2000 [00:04<00:01, 356.66it/s] 76%|███████▋  | 1527/2000 [00:04<00:01, 358.53it/s] 78%|███████▊  | 1565/2000 [00:04<00:01, 361.99it/s] 80%|████████  | 1602/2000 [00:04<00:01, 363.87it/s] 82%|████████▏ | 1639/2000 [00:04<00:00, 363.30it/s] 84%|████████▍ | 1678/2000 [00:04<00:00, 369.17it/s] 86%|████████▌ | 1715/2000 [00:04<00:00, 368.52it/s] 88%|████████▊ | 1752/2000 [00:04<00:00, 366.26it/s] 90%|████████▉ | 1790/2000 [00:0509/27/2026 22:02:29 - INFO - utils_qa - Saving predictions to /mnt/lustre/scratch/nvme/SLURM/10027015/bert_squad_output/eval_predictions.json.
-09/27/2026 22:02:29 - INFO - utils_qa - Saving nbest_preds to /mnt/lustre/scratch/nvme/SLURM/10027015/bert_squad_output/eval_nbest_predictions.json.
-<00:00, 367.81it/s] 91%|█████████▏| 1827/2000 [00:05<00:00, 366.73it/s] 93%|█████████▎| 1864/2000 [00:05<00:00, 365.24it/s] 95%|█████████▌| 1903/2000 [00:05<00:00, 369.77it/s] 97%|█████████▋| 1940/2000 [00:05<00:00, 369.14it/s]100%|█████████▉| 1993/2000 [00:05<00:00, 416.75it/s]100%|██████████| 2000/2000 [00:05<00:00, 357.56it/s]
-[INFO|modelcard.py:451] 2026-09-27 22:02:30,329 >> Dropping the following result as it does not have all the necessary fields:
-{'task': {'name': 'Question Answering', 'type': 'question-answering'}, 'dataset': {'name': 'squad', 'type': 'squad', 'config': 'plain_text', 'split': 'validation', 'args': 'plain_text'}}
-{'eval_exact_match': 47.05, 'eval_f1': 56.75391636682285, 'eval_runtime': 12.7348, 'eval_samples_per_second': 157.05, 'eval_steps_per_second': 19.631, 'epoch': 2.0}
-***** eval metrics *****
-  epoch                   =        2.0
-  eval_exact_match        =      47.05
-  eval_f1                 =    56.7539
-  eval_runtime            = 0:00:12.73
-  eval_samples            =       2000
-  eval_samples_per_second =     157.05
-  eval_steps_per_second   =     19.631
