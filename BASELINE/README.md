@@ -1,10 +1,10 @@
 ## Baseline implementation
 
-Scripts `run_qa.py`, `trainer_qa.py`, `utils_qa.py` obtenidos de:
+Scripts `run_qa.py`, `trainer_qa.py`, `utils_qa.py` obtained from:
 https://github.com/huggingface/transformers/tree/examples/pytorch/question-answering
 
 
-Descargados el 2026-09-27. Tag 4.30.2 para coincidir con mi versión de transformers instalada localmente.
+Downloaded on 2026-09-27. Transformers tag 4.30.2.
 
 ## Baseline Training execution — BERT-Base on SQuAD (Full Dataset)
 
