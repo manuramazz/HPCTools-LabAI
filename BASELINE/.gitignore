@@ -1,2 +1,5 @@
 logs/
 bert_squad_output/
+bert_squad_logs/
+pychache/
+*/pychache/
