@@ -19,8 +19,11 @@ Fine-tuning the library models for question answering using a slightly adapted v
 # You can also adapt this script on your own question answering task. Pointers for this are left as comments.
 
 ### Modificaciones realizadas
-# - Se añadió instrumentación con `torch.profiler` alrededor de la llamada a `trainer.train()`
-#   en `run_qa.py`, para generar trazas de profiling visualizables en TensorBoard
+# - Se añadió `import torch`.
+# - Se llama a `torch.cuda.reset_peak_memory_stats()` antes de entrenar y se añaden a las métricas de
+#   entrenamiento `max_cuda_allocated_gib` y `max_cuda_reserved_gib` (pico de memoria de la GPU).
+# - Se añade a las métricas de entrenamiento `train_real_tokens_per_epoch` (suma de `attention_mask`
+#   del dataset de entrenamiento, es decir, tokens reales sin padding), para calcular FLOPs y MFU.
 # - Sin otras modificaciones respecto al original.
 
 
@@ -36,8 +39,7 @@ from datasets import load_dataset
 from trainer_qa import QuestionAnsweringTrainer
 from utils_qa import postprocess_qa_predictions
 
-from torch.profiler import profile, ProfilerActivity, schedule, tensorboard_trace_handler
-
+import torch
 import transformers
 from transformers import (
     AutoConfig,
@@ -632,15 +634,8 @@ def main():
         elif last_checkpoint is not None:
             checkpoint = last_checkpoint
             
-        prof_schedule = schedule(wait=1, warmup=1, active=10, repeat=1)
-        with profile(
-            activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA],
-            schedule=prof_schedule,
-            on_trace_ready=tensorboard_trace_handler(training_args.logging_dir),
-            record_shapes=True,
-            profile_memory=True,
-        ) as prof:
-            train_result = trainer.train(resume_from_checkpoint=checkpoint)
+        torch.cuda.reset_peak_memory_stats()
+        train_result = trainer.train(resume_from_checkpoint=checkpoint)
         trainer.save_model()  # Saves the tokenizer too for easy upload
 
         metrics = train_result.metrics
@@ -648,6 +643,9 @@ def main():
             data_args.max_train_samples if data_args.max_train_samples is not None else len(train_dataset)
         )
         metrics["train_samples"] = min(max_train_samples, len(train_dataset))
+        metrics["train_real_tokens_per_epoch"] = sum(sum(mask) for mask in train_dataset["attention_mask"])
+        metrics["max_cuda_allocated_gib"] = torch.cuda.max_memory_allocated() / 1024**3
+        metrics["max_cuda_reserved_gib"] = torch.cuda.max_memory_reserved() / 1024**3
 
         trainer.log_metrics("train", metrics)
         trainer.save_metrics("train", metrics)
