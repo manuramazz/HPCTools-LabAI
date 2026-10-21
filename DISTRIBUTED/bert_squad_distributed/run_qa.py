@@ -24,6 +24,9 @@ Fine-tuning the library models for question answering using a slightly adapted v
 #   entrenamiento `max_cuda_allocated_gib` y `max_cuda_reserved_gib` (pico de memoria de la GPU).
 # - Se añade a las métricas de entrenamiento `train_real_tokens_per_epoch` (suma de `attention_mask`
 #   del dataset de entrenamiento, es decir, tokens reales sin padding), para calcular FLOPs y MFU.
+# - Se añade un profiler opcional (`torch.profiler`), activado solo con la variable de entorno `PROFILE=1`:
+#   un `TrainerCallback` (`ProfilerStepCallback`) avanza el `schedule` en cada step y la traza se escribe
+#   en `<logging_dir>/profile` (visible en TensorBoard) junto con una tabla resumen en el log.
 # - Sin otras modificaciones respecto al original.
 
 
@@ -41,6 +44,7 @@ from utils_qa import postprocess_qa_predictions
 
 import torch
 import transformers
+from torch.profiler import ProfilerActivity, profile, schedule, tensorboard_trace_handler
 from transformers import (
     AutoConfig,
     AutoModelForQuestionAnswering,
@@ -49,6 +53,7 @@ from transformers import (
     EvalPrediction,
     HfArgumentParser,
     PreTrainedTokenizerFast,
+    TrainerCallback,
     TrainingArguments,
     default_data_collator,
     set_seed,
@@ -64,6 +69,14 @@ check_min_version("4.30.0")
 require_version("datasets>=1.8.0", "To fix: pip install -r examples/pytorch/question-answering/requirements.txt")
 
 logger = logging.getLogger(__name__)
+
+
+class ProfilerStepCallback(TrainerCallback):
+    def __init__(self, prof):
+        self.prof = prof
+
+    def on_step_end(self, args, state, control, **kwargs):
+        self.prof.step()
 
 
 @dataclass
@@ -634,8 +647,29 @@ def main():
         elif last_checkpoint is not None:
             checkpoint = last_checkpoint
             
+        profiler = None
+        if os.environ.get("PROFILE") == "1":
+            logger.info("PROFILE=1: profiler activado, no usar esta ejecucion para medir tiempos.")
+            write_trace = tensorboard_trace_handler(os.path.join(training_args.logging_dir, "profile"))
+
+            def on_trace_ready(prof):
+                write_trace(prof)
+                logger.info("\n" + prof.key_averages().table(sort_by="cuda_time_total", row_limit=20))
+
+            profiler = profile(
+                activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA],
+                schedule=schedule(wait=1, warmup=1, active=10, repeat=1),
+                on_trace_ready=on_trace_ready,
+                record_shapes=True,
+                profile_memory=True,
+            )
+            trainer.add_callback(ProfilerStepCallback(profiler))
+            profiler.start()
+
         torch.cuda.reset_peak_memory_stats()
         train_result = trainer.train(resume_from_checkpoint=checkpoint)
+        if profiler is not None:
+            profiler.stop()
         trainer.save_model()  # Saves the tokenizer too for easy upload
 
         metrics = train_result.metrics
