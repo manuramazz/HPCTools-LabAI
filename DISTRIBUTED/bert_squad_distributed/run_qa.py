@@ -27,6 +27,8 @@ Fine-tuning the library models for question answering using a slightly adapted v
 # - Se añade un profiler opcional (`torch.profiler`), activado solo con la variable de entorno `PROFILE=1`:
 #   un `TrainerCallback` (`ProfilerStepCallback`) avanza el `schedule` en cada step y la traza se escribe
 #   en `<logging_dir>/profile` (visible en TensorBoard) junto con una tabla resumen en el log.
+# - En el preprocesado del dataset se añade la opción local=False para que un solo proceso global la realice 
+#   en caso de estar usando más de un nodo de procesamiento.s
 # - Sin otras modificaciones respecto al original.
 
 
@@ -480,7 +482,7 @@ def main():
             max_train_samples = min(len(train_dataset), data_args.max_train_samples)
             train_dataset = train_dataset.select(range(max_train_samples))
         # Create train feature from dataset
-        with training_args.main_process_first(desc="train dataset map pre-processing"):
+        with training_args.main_process_first(desc="train dataset map pre-processing", local=False):
             train_dataset = train_dataset.map(
                 prepare_train_features,
                 batched=True,
@@ -550,7 +552,7 @@ def main():
             max_eval_samples = min(len(eval_examples), data_args.max_eval_samples)
             eval_examples = eval_examples.select(range(max_eval_samples))
         # Validation Feature Creation
-        with training_args.main_process_first(desc="validation dataset map pre-processing"):
+        with training_args.main_process_first(desc="validation dataset map pre-processing", local=False):
             eval_dataset = eval_examples.map(
                 prepare_validation_features,
                 batched=True,
@@ -572,7 +574,7 @@ def main():
             # We will select sample from whole data
             predict_examples = predict_examples.select(range(data_args.max_predict_samples))
         # Predict Feature Creation
-        with training_args.main_process_first(desc="prediction dataset map pre-processing"):
+        with training_args.main_process_first(desc="prediction dataset map pre-processing", local=False):
             predict_dataset = predict_examples.map(
                 prepare_validation_features,
                 batched=True,
